@@ -1,0 +1,20 @@
+[gd_resource type="Theme" format=3 uid="uid://bq4jlm71o6e0r"]
+
+[ext_resource type="FontFile" uid="uid://b7nhaqxg52rfq" path="res://fonts/mightly_souly.ttf" id="1_hmvbq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3csn"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0.351989, 0.285134, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[resource]
+Fonts/fonts/large = ExtResource("1_hmvbq")
+Fonts/fonts/normal = ExtResource("1_hmvbq")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_x3csn")

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://ce2l48n0x4gs3"]
+
+[ext_resource type="PackedScene" uid="uid://hewsyrsjorjh" path="res://sprites/game_scene/player.tscn" id="1_7fx2t"]
+[ext_resource type="Script" uid="uid://c0wnl0vwdxcdx" path="res://src/scenes/game_scene.gd" id="1_770wg"]
+[ext_resource type="Texture2D" uid="uid://dxn33gagcudqg" path="res://icon.svg" id="3_cjb2d"]
+[ext_resource type="PackedScene" uid="uid://by1x50o2g8532" path="res://sprites/game_scene/gui.tscn" id="4_lbpxj"]
+[ext_resource type="AudioStream" uid="uid://7o5n2lut3es1" path="res://sounds/music/game.mp3" id="5_417xc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_caljr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_733h2"]
+size = Vector2(127.254, 128.058)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_haj8k"]
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"walls"
+agent_radius = 21.0
+
+[node name="GameScene" type="Node2D" unique_id=521242858]
+script = ExtResource("1_770wg")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=369234768 groups=["walls"]]
+position = Vector2(300.906, 250)
+rotation = 0.698132
+collision_layer = 2
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_caljr")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D2" unique_id=294765124]
+texture = ExtResource("3_cjb2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1522313962]
+position = Vector2(-0.126984, -0.0290108)
+shape = SubResource("RectangleShape2D_733h2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2055320960 groups=["walls"]]
+position = Vector2(-100, 90)
+rotation = 1.0472
+collision_layer = 2
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_caljr")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=88994063]
+texture = ExtResource("3_cjb2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1698317508]
+position = Vector2(-0.126984, -0.0290108)
+shape = SubResource("RectangleShape2D_733h2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1840210279 groups=["walls"]]
+position = Vector2(87, -155)
+rotation = -2.60054
+collision_layer = 2
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_caljr")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D3" unique_id=370172621]
+texture = ExtResource("3_cjb2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=318102300]
+position = Vector2(-0.126984, -0.0290108)
+shape = SubResource("RectangleShape2D_733h2")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1913744447 groups=["walls"]]
+position = Vector2(275, 18)
+rotation = 0.349066
+collision_layer = 2
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_caljr")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D4" unique_id=388606692]
+texture = ExtResource("3_cjb2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=628567304]
+position = Vector2(-0.126984, -0.0290108)
+shape = SubResource("RectangleShape2D_733h2")
+
+[node name="NavRegion" type="NavigationRegion2D" parent="." unique_id=1047994318]
+navigation_polygon = SubResource("NavigationPolygon_haj8k")
+
+[node name="Player" parent="." unique_id=304665672 instance=ExtResource("1_7fx2t")]
+
+[node name="GUI" parent="." unique_id=1913459194 instance=ExtResource("4_lbpxj")]
+
+[node name="Zombies" type="Node2D" parent="." unique_id=1704698548]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=625454417]
+stream = ExtResource("5_417xc")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="new_wave" from="." to="GUI" method="set_wave"]
