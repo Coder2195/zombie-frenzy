@@ -104,6 +104,7 @@ layout_mode = 0
 offset_left = -504.0
 offset_top = -107.0
 offset_right = 508.0
+offset_bottom = 8.0
 texture = ExtResource("3_oaexb")
 region_rect = Rect2(397, 2, 131, 132)
 axis_stretch_horizontal = 2

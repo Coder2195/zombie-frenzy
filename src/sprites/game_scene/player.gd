@@ -65,7 +65,7 @@ func _physics_process(delta):
   elif Input.is_action_just_pressed("8"):
     set_selected_item(7);
 
-  if selected_item > 0 && Input.is_action_just_pressed("inventory_use"):
+  if selected_item > 0 && Input.is_action_just_pressed("inventory_use") && vehicle == null:
     use_item();
  
   
