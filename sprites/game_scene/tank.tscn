@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://2x144ceikrj0" path="res://src/sprites/game_scene/tank.gd" id="1_yo0g7"]
 [ext_resource type="Texture2D" uid="uid://c8j5u2gvxvfh0" path="res://images/tank/body.png" id="2_axp4x"]
 [ext_resource type="PackedScene" uid="uid://qm5tbdym6s5c" path="res://sprites/game_scene/interact.tscn" id="4_xa5of"]
+[ext_resource type="AudioStream" uid="uid://x6705abnaqks" path="res://sounds/effects/machine_gun.mp3" id="5_s2qax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axp4x"]
 size = Vector2(80, 77)
@@ -68,3 +69,6 @@ offset_top = 58.0
 offset_right = 101.0
 offset_bottom = 118.0
 pivot_offset = Vector2(100, 32)
+
+[node name="MachineGun" type="AudioStreamPlayer2D" parent="." unique_id=1285294756]
+stream = ExtResource("5_s2qax")
