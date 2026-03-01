@@ -8,9 +8,9 @@ var damage = 60;
 var initial_pos = Vector2(0, 0);
 
 static func create(node: Node2D, offset = Vector2(0, 0), dmg = 60):
-  var this = BulletScene.instantiate();
-  if this is Bullet:
-    this.creator = node;
+  var this = BulletScene.instantiate() as Bullet;
+ 
+  this.creator = node;
 
   this.damage = dmg;
   
@@ -34,8 +34,9 @@ func _physics_process(_delta):
   move_and_slide();
 
 func body_enter(body: Node2D):
-  if is_queued_for_deletion():
+  if is_queued_for_deletion() || body == creator:
     return ;
+
   if body is StaticBody2D:
     queue_free();
   elif body is Zombie:

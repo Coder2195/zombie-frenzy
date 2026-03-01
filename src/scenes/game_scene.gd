@@ -7,6 +7,8 @@ var last_pos = Vector2(0, 0);
 
 signal new_wave(wave: int);
 
+var tiles = [preload("res://images/tiles/wic.png")];
+
 var chunk_map = {}
 
 var stop_thread = false;
@@ -63,6 +65,12 @@ func generate_chunk(pos: Vector2i):
       var body = $StaticBody2D.duplicate() as StaticBody2D;
       body.position = Vector2(randf_range(pos.x * 5000 - 2500, pos.x * 5000 + 2500), randf_range(pos.y * 5000 - 2500, pos.y * 5000 + 2500));
       body.rotation = randf() * 2 * PI;
+    
+      var sprite = (body.get_children().get(0) as Sprite2D);
+      var rand_num = randi_range(0, 1);
+      if rand_num < tiles.size():
+        sprite.texture = tiles[rand_num];
+      
       add_child(body);
 
   print("Generated chunk: ", pos);
