@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b0vnd4ly1eeyu"]
+
+[ext_resource type="Shader" uid="uid://ylx0xfbmxb07" path="res://shaders/forcefield.gdshader" id="1_0wu8a"]
+[ext_resource type="Script" uid="uid://br3ds57nog37l" path="res://src/sprites/game_scene/forcefield.gd" id="1_d4saf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4saf"]
+radius = 100.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njswd"]
+shader = ExtResource("1_0wu8a")
+
+[sub_resource type="Animation" id="Animation_0wu8a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d4saf"]
+resource_name = "fade_out"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(9, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_njswd"]
+_data = {
+&"RESET": SubResource("Animation_0wu8a"),
+&"fade_out": SubResource("Animation_d4saf")
+}
+
+[node name="Forcefield" type="StaticBody2D" unique_id=247409179]
+collision_layer = 128
+collision_mask = 20
+script = ExtResource("1_d4saf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207758491]
+shape = SubResource("CircleShape2D_d4saf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1122996605]
+material = SubResource("ShaderMaterial_njswd")
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=2047879485]
+libraries/ = SubResource("AnimationLibrary_njswd")
+
+[connection signal="animation_finished" from="Animation" to="." method="delete"]

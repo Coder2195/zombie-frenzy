@@ -2,9 +2,12 @@ class_name Crate extends StaticBody2D;
 
 static var scene: PackedScene = preload("res://sprites/game_scene/crate.tscn");
 
-func create() -> Crate:
+static func create() -> Crate:
   var this = scene.instantiate() as Crate;
   return this;
+
+func _ready():
+  add_to_group("walls");
 
 func _physics_process(delta: float) -> void:
   var player = get_node("/root/GameScene/Player") as Player;

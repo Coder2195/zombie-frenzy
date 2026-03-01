@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bleibgesl0oph" path="res://sprites/game_scene/tank.tscn" id="6_rurhu"]
 [ext_resource type="PackedScene" uid="uid://ca2vwy2cjeigk" path="res://sprites/game_scene/crate.tscn" id="7_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://cjwbom1ynbk4r" path="res://sprites/game_scene/landmine.tscn" id="8_b5spy"]
+[ext_resource type="PackedScene" uid="uid://b0vnd4ly1eeyu" path="res://sprites/game_scene/forcefield.tscn" id="9_utbpp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_caljr"]
 
@@ -15,8 +16,9 @@
 size = Vector2(127.254, 128.058)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_haj8k"]
-vertices = PackedVector2Array(203.42969, -184.20313, 2764.0469, -554.4219, 383.5, -33.03125, 224.45313, -90.921875, 2412.789, 1954.5781, 420.3203, 239.14844, 325.32813, 126.78125, 15.921875, 120.64844, 166.28125, 68.890625, 290.64844, 130.36719, 115.84375, -38.4375, 181.34375, 260.64063, -1372.7109, 1868.3906, -131.36719, 205.67969, -68.71094, -25.929688, -29.242188, -125.61719, 311, 369.42188, -1915.0469, -840.3672, -215.99219, 59.101563, 58.351563, -271.3828)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5, 6), PackedInt32Array(7, 8, 6, 9), PackedInt32Array(6, 5, 9), PackedInt32Array(10, 0, 3, 8), PackedInt32Array(7, 9, 11, 12, 13), PackedInt32Array(10, 8, 7, 14, 15), PackedInt32Array(16, 5, 4), PackedInt32Array(16, 4, 12), PackedInt32Array(11, 16, 12), PackedInt32Array(13, 12, 17, 18), PackedInt32Array(14, 18, 17, 15), PackedInt32Array(19, 15, 17), PackedInt32Array(19, 17, 1), PackedInt32Array(19, 1, 0)])
+vertices = PackedVector2Array(203.42969, -184.20313, 1578.9609, -438.29688, 383.5, -33.03125, 224.45313, -90.921875, 15.921875, 120.64844, 166.28125, 68.890625, 325.32813, 126.78125, 290.64844, 130.36719, 115.84375, -38.4375, 420.3203, 239.14844, 1627.9922, 587.46094, 311, 369.42188, -131.36719, 205.67969, 181.34375, 260.64063, -370.09375, 630.65625, -68.71094, -25.929688, -29.242188, -125.61719, -747.47656, -474.53125, -215.99219, 59.101563, 58.351563, -271.3828)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 0, 3, 5), PackedInt32Array(9, 1, 10, 11), PackedInt32Array(2, 1, 9, 6), PackedInt32Array(6, 9, 7), PackedInt32Array(12, 4, 7, 13, 14), PackedInt32Array(8, 5, 4, 15, 16), PackedInt32Array(11, 10, 14), PackedInt32Array(13, 11, 14), PackedInt32Array(12, 14, 17, 18), PackedInt32Array(15, 18, 17, 16), PackedInt32Array(19, 16, 17), PackedInt32Array(19, 17, 1), PackedInt32Array(19, 1, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-777, -496, 1599, -459, 1650, 608, -385, 652)])
 parsed_geometry_type = 1
 source_geometry_mode = 1
 source_geometry_group_name = &"walls"
@@ -107,7 +109,7 @@ rotation = 1.5580369
 position = Vector2(-271.00012, -72.00003)
 rotation = 1.5580369
 
-[node name="Crate" parent="." unique_id=1347308977 instance=ExtResource("7_kk2rg")]
+[node name="Crate" parent="." unique_id=1347308977 groups=["walls"] instance=ExtResource("7_kk2rg")]
 position = Vector2(-215, 492)
 
 [node name="Crate2" parent="." unique_id=2097529022 instance=ExtResource("7_kk2rg")]
@@ -121,5 +123,8 @@ position = Vector2(-55, 340)
 
 [node name="Landmine2" parent="." unique_id=1322998557 instance=ExtResource("8_b5spy")]
 position = Vector2(60, 351)
+
+[node name="Forcefield" parent="." unique_id=247409179 instance=ExtResource("9_utbpp")]
+position = Vector2(-472, 18)
 
 [connection signal="new_wave" from="." to="GUI" method="set_wave"]

@@ -13,7 +13,7 @@ size = Vector2(21, 37)
 
 [node name="Zombie" type="RigidBody2D" unique_id=1643569516]
 collision_layer = 4
-collision_mask = 103
+collision_mask = 231
 script = ExtResource("1_eirac")
 
 [node name="Zombie" type="Sprite2D" parent="." unique_id=832382946]

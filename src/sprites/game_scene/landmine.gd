@@ -11,7 +11,7 @@ static func create() -> Landmine:
 
 func explode(a):
   for body in $Blast.get_overlapping_bodies():
-    var damage = max(100 - global_position.distance_to(body.global_position), 0);
+    var damage = max(120 - global_position.distance_to(body.global_position), 0);
     
     if body is Player:
       body.damage(damage / 2);

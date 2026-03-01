@@ -37,7 +37,14 @@ func _exit_tree() -> void:
 func background_chunks():
   while not stop_thread:
     await get_tree().create_timer(10.0).timeout;
+    
     var player = get_node("Player");
+    for _i in range(0, 5):
+      var crate = Crate.create();
+      crate.position = player.position + Vector2(randf_range(1000, 3000), 0).rotated(randf() * 2 * PI);
+      
+      
+      get_node("/root/GameScene/").add_child.call_deferred(crate);
     if player == null:
       continue ;
     var current_chunk = $Player.position / 5000;

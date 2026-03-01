@@ -123,13 +123,17 @@ func give(item: ItemData) -> bool:
   var success = false;
   for i in range(0, inventory.size()):
     if inventory[i] == null:
-      inventory[i] = item;
-      success = true;
-      break ;
-    elif inventory[i].name == item.name:
+      continue ;
+    if inventory[i].name == item.name:
       inventory[i].count += item.count;
       success = true;
       break ;
+  if (!success):
+    for i in range(0, inventory.size()):
+      if inventory[i] == null:
+        inventory[i] = item;
+        success = true;
+        break ;
   var gui = get_node("/root/GameScene/GUI") as GUI;
   gui.set_inventory(inventory);
   return success;
@@ -153,6 +157,11 @@ func use_item():
     var mine = Landmine.create();
     mine.global_position = global_position + Vector2(50, 0).rotated(rotation);
     get_node("/root/GameScene/").add_child(mine);
+
+  elif selected.name == "forcefield":
+    var field = Forcefield.create();
+    field.global_position = global_position;
+    get_node("/root/GameScene/").add_child(field);
 
   
   selected.count -= 1;
