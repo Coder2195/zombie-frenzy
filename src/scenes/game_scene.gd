@@ -43,7 +43,7 @@ func background_chunks():
     for _i in range(0, 5):
       var crate = Crate.create();
       crate.position = player.position + Vector2(randf_range(1000, 3000), 0).rotated(randf() * 2 * PI);
-      
+      crate.add_to_group("walls");
       
       get_node("/root/GameScene/").add_child.call_deferred(crate);
     if player == null:

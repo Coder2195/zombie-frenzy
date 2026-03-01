@@ -18,7 +18,7 @@ config/name="Zombie Frenzy"
 run/main_scene="uid://bjurwkpmmmidl"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="uid://2e2o0cwjyvt1"
 
 [audio]
 

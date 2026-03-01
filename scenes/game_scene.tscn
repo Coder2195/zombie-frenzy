@@ -15,15 +15,16 @@
 size = Vector2(127.254, 128.058)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_haj8k"]
-vertices = PackedVector2Array(203.42969, -184.20313, 1578.9609, -438.29688, 383.5, -33.03125, 224.45313, -90.921875, 15.921875, 120.64844, 166.28125, 68.890625, 325.32813, 126.78125, 290.64844, 130.36719, 115.84375, -38.4375, 420.3203, 239.14844, 1627.9922, 587.46094, 311, 369.42188, -131.36719, 205.67969, 181.34375, 260.64063, -370.09375, 630.65625, -68.71094, -25.929688, -29.242188, -125.61719, -747.47656, -474.53125, -215.99219, 59.101563, 58.351563, -271.3828)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 0, 3, 5), PackedInt32Array(9, 1, 10, 11), PackedInt32Array(2, 1, 9, 6), PackedInt32Array(6, 9, 7), PackedInt32Array(12, 4, 7, 13, 14), PackedInt32Array(8, 5, 4, 15, 16), PackedInt32Array(11, 10, 14), PackedInt32Array(13, 11, 14), PackedInt32Array(12, 14, 17, 18), PackedInt32Array(15, 18, 17, 16), PackedInt32Array(19, 16, 17), PackedInt32Array(19, 17, 1), PackedInt32Array(19, 1, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-777, -496, 1599, -459, 1650, 608, -385, 652)])
+vertices = PackedVector2Array(4088.5234, 2239.6016, 1551.5, 706.96875, 1371.4297, 555.7969, 3523.0781, -1341.8594, 1588.3203, 979.14844, 1493.3281, 866.78125, -1168.4375, 2369.461, 995, 1274, 1479, 1109.4219, 1183.9219, 860.64844, 1334.2813, 808.8906, 1458.6484, 870.3672, 1392.4531, 649.0781, 911, 1274, 1283.8438, 701.5625, -1074.5234, -1308.1406, 1226.3516, 468.6172, 1349.3438, 1000.6406, 995, 1189, 1036.6406, 945.6797, 1138.7578, 614.3828, 952.0078, 799.10156, 1099.2891, 714.0703, 911, 1189)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4, 5), PackedInt32Array(0, 6, 7, 8), PackedInt32Array(9, 10, 5, 11), PackedInt32Array(2, 1, 12), PackedInt32Array(13, 7, 6), PackedInt32Array(5, 4, 11), PackedInt32Array(14, 2, 12, 10), PackedInt32Array(15, 3, 2, 16), PackedInt32Array(9, 11, 17, 7, 18, 19), PackedInt32Array(6, 15, 16, 20, 21), PackedInt32Array(14, 10, 9, 22, 20), PackedInt32Array(8, 4, 0), PackedInt32Array(17, 8, 7), PackedInt32Array(19, 18, 23, 21), PackedInt32Array(23, 13, 6), PackedInt32Array(21, 23, 6), PackedInt32Array(21, 20, 22)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1095, -1329, 3541, -1363, 4113, 2260, -1190, 2391)])
 parsed_geometry_type = 1
 source_geometry_mode = 1
 source_geometry_group_name = &"walls"
 agent_radius = 21.0
 
 [node name="GameScene" type="Node2D" unique_id=521242858]
+position = Vector2(0, 1)
 script = ExtResource("1_770wg")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=369234768 groups=["walls"]]
@@ -83,6 +84,7 @@ position = Vector2(-0.126984, -0.0290108)
 shape = SubResource("RectangleShape2D_733h2")
 
 [node name="NavRegion" type="NavigationRegion2D" parent="." unique_id=1047994318]
+position = Vector2(-1168, -740)
 navigation_polygon = SubResource("NavigationPolygon_haj8k")
 
 [node name="Player" parent="." unique_id=304665672 instance=ExtResource("1_7fx2t")]

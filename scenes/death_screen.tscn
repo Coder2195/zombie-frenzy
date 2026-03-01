@@ -1,40 +1,58 @@
 [gd_scene format=3 uid="uid://rx7lnf4gy7po"]
 
-[ext_resource type="Script" path="res://src/scenes/death_screen.gd" id="1_psikq"]
+[ext_resource type="Script" uid="uid://bwhgtefsi0qsj" path="res://src/scenes/death_screen.gd" id="1_psikq"]
 [ext_resource type="AudioStream" uid="uid://clkbbe6fo4ty" path="res://sounds/music/rickroll.mp3" id="2_fbm6x"]
+[ext_resource type="Texture2D" uid="uid://bdabjdirujuhj" path="res://images/backgrounds/death.png" id="3_mqh5l"]
 
-[node name="DeathScreen" type="Control"]
+[node name="DeathScreen" type="Control" unique_id=1148766733]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 script = ExtResource("1_psikq")
 
-[node name="Dead" type="RichTextLabel" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1809027403]
+z_index = -100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.63641
+offset_right = 135.63647
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_mqh5l")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Dead" type="RichTextLabel" parent="." unique_id=2123630077]
 layout_mode = 0
 offset_right = 1282.0
 offset_bottom = 196.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 150
 theme_override_font_sizes/bold_font_size = 150
-theme_override_font_sizes/italics_font_size = 100
 theme_override_font_sizes/bold_italics_font_size = 100
+theme_override_font_sizes/italics_font_size = 100
 theme_override_font_sizes/mono_font_size = 100
 bbcode_enabled = true
 text = "[center][color=red]You died![/color][/center]"
 
-[node name="Stats" type="RichTextLabel" parent="."]
+[node name="Stats" type="RichTextLabel" parent="." unique_id=1228064058]
 layout_mode = 0
 offset_top = 196.0
 offset_right = 1274.0
 offset_bottom = 600.0
 theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 50
-theme_override_font_sizes/italics_font_size = 50
 theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
 theme_override_font_sizes/mono_font_size = 50
 bbcode_enabled = true
 
-[node name="Restart" type="Button" parent="."]
+[node name="Restart" type="Button" parent="." unique_id=61779087]
+z_index = 10
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -47,9 +65,10 @@ offset_right = 93.5
 offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 40
 text = "Restart"
 
-[node name="Rickroll" type="AudioStreamPlayer" parent="."]
+[node name="Rickroll" type="AudioStreamPlayer" parent="." unique_id=1390445637]
 stream = ExtResource("2_fbm6x")
 autoplay = true
 
