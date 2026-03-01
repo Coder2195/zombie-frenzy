@@ -42,11 +42,11 @@ func _process(delta: float) -> void:
 func set_inventory(items: Array[Player.ItemData]):
   for i in range(len(items)):
     var item = items[i];
-    var item_node = $Control/Inventory/Control/Inventory/Items.get_child(i) as Item;
+    var item_node = $Control/Inventory/Items.get_child(i) as Item;
     if item == null:
       item_node.visible = false;
     else:
       item_node.visible = true;
       item_node.animation = item.name;
-      item_node.get_child(i).get_node("Count").visible = item.count > 1;
-      item_node.get_child(i).get_node("Count").text = str(item.count);
+      item_node.count_visible = item.count > 1;
+      item_node.set_count(item.count);

@@ -64,6 +64,9 @@ func _physics_process(delta):
     set_selected_item(6);
   elif Input.is_action_just_pressed("8"):
     set_selected_item(7);
+
+  if selected_item > 0 && Input.is_action_just_pressed("inventory_use"):
+    use_item();
  
   
   if vehicle == null:
@@ -83,7 +86,7 @@ func _physics_process(delta):
   if stamina > 100:
     stamina = 100;
   
-  if stamina <= 0:
+  if stamina <= 1 && sprint > 1.0:
     sprint = 1.0;
     stamina = 0;
 
@@ -114,3 +117,48 @@ func damage(dmg: float):
 
 func _ready():
   set_selected_item(0);
+
+
+func give(item: ItemData) -> bool:
+  var success = false;
+  for i in range(0, inventory.size()):
+    if inventory[i] == null:
+      inventory[i] = item;
+      success = true;
+      break ;
+    elif inventory[i].name == item.name:
+      inventory[i].count += item.count;
+      success = true;
+      break ;
+  var gui = get_node("/root/GameScene/GUI") as GUI;
+  gui.set_inventory(inventory);
+  return success;
+
+func use_item():
+  var gui = get_node("/root/GameScene/GUI") as GUI;
+  var selected = inventory[selected_item];
+  if selected == null: return ;
+  
+  if selected.name == "medkit":
+    if health >= 100:
+      return ;
+    health += 40;
+    if health > 100:
+      health = 100;
+    if (gui != null):
+      gui.set_health(health);
+  
+  elif selected.name == "landmine":
+    print("Placing landmine");
+    var mine = Landmine.create();
+    mine.global_position = global_position + Vector2(0, 30).rotated(rotation);
+    get_node("/root/GameScene/").add_child(mine);
+
+  
+  selected.count -= 1;
+  if (selected.count <= 0):
+    inventory[selected_item] = null;
+    set_selected_item(selected_item);
+
+  
+  gui.set_inventory(inventory);

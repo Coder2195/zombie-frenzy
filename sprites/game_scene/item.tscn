@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bea3ai61jp4c1" path="res://images/items/gun.png" id="1_skxpy"]
 [ext_resource type="Texture2D" uid="uid://cj323pv1pl6wm" path="res://images/items/landmine.png" id="1_uaps5"]
 [ext_resource type="Script" uid="uid://cdvyvsetti8qi" path="res://src/sprites/game_scene/item.gd" id="2_0rwde"]
+[ext_resource type="Texture2D" uid="uid://ccgkc343w5k4l" path="res://images/items/medkit.png" id="3_7t5sx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0rwde"]
 animations = [{
@@ -21,11 +22,19 @@ animations = [{
 "loop": true,
 "name": &"landmine",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7t5sx")
+}],
+"loop": true,
+"name": &"medkit",
+"speed": 5.0
 }]
 
 [node name="Item" type="AnimatedSprite2D" unique_id=703832964]
 sprite_frames = SubResource("SpriteFrames_0rwde")
-animation = &"gun"
+animation = &"medkit"
 script = ExtResource("2_0rwde")
 
 [node name="Count" type="RichTextLabel" parent="." unique_id=619363727]

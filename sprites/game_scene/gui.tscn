@@ -119,49 +119,43 @@ texture = SubResource("AtlasTexture_oaexb")
 [node name="Item" parent="Control/Inventory/Items" unique_id=703832964 instance=ExtResource("4_jn2f2")]
 position = Vector2(-436, -48)
 scale = Vector2(2.083333, 2.0833316)
+animation = &"gun"
 count_visible = false
 
 [node name="Item2" parent="Control/Inventory/Items" unique_id=1980232084 instance=ExtResource("4_jn2f2")]
 visible = false
 position = Vector2(-310, -48)
 scale = Vector2(2.083333, 2.0833316)
-count_visible = false
 
 [node name="Item3" parent="Control/Inventory/Items" unique_id=1740054762 instance=ExtResource("4_jn2f2")]
 visible = false
 position = Vector2(-184, -48)
 scale = Vector2(2.083333, 2.0833316)
-count_visible = false
 
 [node name="Item4" parent="Control/Inventory/Items" unique_id=251400677 instance=ExtResource("4_jn2f2")]
 visible = false
 position = Vector2(-58, -48)
 scale = Vector2(2.083333, 2.0833316)
-count_visible = false
 
 [node name="Item5" parent="Control/Inventory/Items" unique_id=359877749 instance=ExtResource("4_jn2f2")]
 visible = false
 position = Vector2(68, -48)
 scale = Vector2(2.083333, 2.0833316)
-count_visible = false
 
 [node name="Item6" parent="Control/Inventory/Items" unique_id=772488639 instance=ExtResource("4_jn2f2")]
 visible = false
 position = Vector2(194, -48)
 scale = Vector2(2.083333, 2.0833316)
-count_visible = false
 
 [node name="Item7" parent="Control/Inventory/Items" unique_id=967582695 instance=ExtResource("4_jn2f2")]
 visible = false
 position = Vector2(320, -48)
 scale = Vector2(2.083333, 2.0833316)
-count_visible = false
 
 [node name="Item8" parent="Control/Inventory/Items" unique_id=783822076 instance=ExtResource("4_jn2f2")]
 visible = false
 position = Vector2(446, -48)
 scale = Vector2(2.083333, 2.0833316)
-count_visible = false
 
 [node name="Damage" type="ColorRect" parent="Control" unique_id=1699656712]
 visible = false

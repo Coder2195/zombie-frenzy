@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://by1x50o2g8532" path="res://sprites/game_scene/gui.tscn" id="4_lbpxj"]
 [ext_resource type="AudioStream" uid="uid://7o5n2lut3es1" path="res://sounds/music/game.mp3" id="5_417xc"]
 [ext_resource type="PackedScene" uid="uid://bleibgesl0oph" path="res://sprites/game_scene/tank.tscn" id="6_rurhu"]
+[ext_resource type="PackedScene" uid="uid://ca2vwy2cjeigk" path="res://sprites/game_scene/crate.tscn" id="7_kk2rg"]
+[ext_resource type="PackedScene" uid="uid://cjwbom1ynbk4r" path="res://sprites/game_scene/landmine.tscn" id="8_b5spy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_caljr"]
 
@@ -104,5 +106,20 @@ rotation = 1.5580369
 [node name="Tank3" parent="." unique_id=729434455 instance=ExtResource("6_rurhu")]
 position = Vector2(-271.00012, -72.00003)
 rotation = 1.5580369
+
+[node name="Crate" parent="." unique_id=1347308977 instance=ExtResource("7_kk2rg")]
+position = Vector2(-215, 492)
+
+[node name="Crate2" parent="." unique_id=2097529022 instance=ExtResource("7_kk2rg")]
+position = Vector2(59, 142)
+
+[node name="Crate3" parent="." unique_id=129648421 instance=ExtResource("7_kk2rg")]
+position = Vector2(-85, -170)
+
+[node name="Landmine" parent="." unique_id=1679111837 instance=ExtResource("8_b5spy")]
+position = Vector2(-55, 340)
+
+[node name="Landmine2" parent="." unique_id=1322998557 instance=ExtResource("8_b5spy")]
+position = Vector2(60, 351)
 
 [connection signal="new_wave" from="." to="GUI" method="set_wave"]

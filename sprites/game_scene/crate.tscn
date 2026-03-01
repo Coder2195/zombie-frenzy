@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ca2vwy2cjeigk"]
+
+[ext_resource type="Texture2D" uid="uid://p8ls2uxeq23k" path="res://images/items/crate.png" id="1_1dh6r"]
+[ext_resource type="Script" uid="uid://cvb2dduetm4sk" path="res://src/sprites/game_scene/crate.gd" id="1_xkwbf"]
+[ext_resource type="PackedScene" uid="uid://qm5tbdym6s5c" path="res://sprites/game_scene/interact.tscn" id="3_a6ugg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkwbf"]
+size = Vector2(42, 43)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1dh6r"]
+radius = 47.169907
+
+[node name="Crate" type="StaticBody2D" unique_id=1347308977]
+collision_layer = 64
+collision_mask = 5
+script = ExtResource("1_xkwbf")
+
+[node name="Crate" type="Sprite2D" parent="." unique_id=1913826429]
+texture = ExtResource("1_1dh6r")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=842656121]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_xkwbf")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=403164274]
+collision_layer = 64
+
+[node name="Collider" type="CollisionShape2D" parent="InteractArea" unique_id=269956070]
+shape = SubResource("CircleShape2D_1dh6r")
+
+[node name="Interact" parent="." unique_id=624752423 instance=ExtResource("3_a6ugg")]
+offset_left = -99.0
+offset_top = 1.0
+offset_right = 101.0
+offset_bottom = 61.0
