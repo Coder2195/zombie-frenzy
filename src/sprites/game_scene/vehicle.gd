@@ -6,6 +6,8 @@ var passenger: Player = null;
 var durability: float = 100.0;
 
 func ride(player: Player):
+  if durability <= 0:
+    return ;
   passenger = player;
   player.set_collision_layer_value(6, false);
   player.vehicle = self ;
@@ -34,3 +36,13 @@ func _physics_process(delta):
   apply_central_force(Vector2(0, 100000 * motion).rotated(rotation) - linear_velocity * 500);
   if passenger != null:
     passenger.position = self.position;
+  $Durability.value = durability;
+  $Durability.rotation = - rotation;
+  $Durability.global_position = self.global_position + Vector2(-$Durability.size.x / 2, -90);
+
+func damage(dmg: float):
+  durability -= dmg;
+  if durability <= 0:
+    if passenger != null:
+      dismount();
+    queue_free();

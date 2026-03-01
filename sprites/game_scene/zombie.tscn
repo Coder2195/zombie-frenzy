@@ -29,6 +29,8 @@ avoidance_enabled = true
 radius = 50.0
 
 [node name="Area" type="Area2D" parent="." unique_id=348007153]
+collision_layer = 4
+collision_mask = 33
 
 [node name="Collision" type="CollisionShape2D" parent="Area" unique_id=585868066]
 position = Vector2(12.5, 0.5)
@@ -55,5 +57,5 @@ max_polyphony = 5
 radius = 44.3
 vertices = PackedVector2Array(-16, -22, 23, -17, 23, 20, -15, 26)
 
-[connection signal="timeout" from="Timer" to="Timer" method="start"]
 [connection signal="timeout" from="Timer" to="." method="try_hit"]
+[connection signal="timeout" from="Timer" to="Timer" method="start"]

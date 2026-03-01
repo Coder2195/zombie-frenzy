@@ -13,6 +13,18 @@ radius = 67.06713
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa5of"]
 size = Vector2(178, 176)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axp4x"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.42, 0.42, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
 [node name="Tank" type="RigidBody2D" unique_id=1684360629]
 collision_layer = 32
 collision_mask = 39
@@ -50,3 +62,13 @@ linear_damp = 1.915
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Friction" unique_id=1746882745]
 position = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_xa5of")
+
+[node name="Durability" type="ProgressBar" parent="." unique_id=1215778663]
+z_index = 100
+offset_left = -47.0
+offset_top = -90.0
+offset_right = 51.0
+offset_bottom = -66.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_axp4x")
+step = 2.08165e-12
+rounded = true

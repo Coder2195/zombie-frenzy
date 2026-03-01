@@ -62,5 +62,7 @@ func damage(dmg: float):
 func try_hit():
   var hit = $Area.get_overlapping_bodies()
   for body in hit:
+    if body is Vehicle:
+      body.damage(10);
     if body is Player:
       body.damage(5);
