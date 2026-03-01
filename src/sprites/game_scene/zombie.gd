@@ -11,6 +11,7 @@ var duration = 0.0;
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
+
 func _ready():
   $Health.max_value = max_health;
   set_physics_process(false);
@@ -53,7 +54,8 @@ func _physics_process(delta):
   $Health.rotation = - rotation;
 
 func damage(dmg: float):
-  $Hit.play();
+  if (dmg >= 5):
+    $Hit.play();
   health -= dmg;
   if health <= 0:
     DataTracker.zombies_killed += 1;
@@ -64,5 +66,9 @@ func try_hit():
   for body in hit:
     if body is Vehicle:
       body.damage(5);
+      var impact = abs(body.linear_velocity.dot(body.linear_velocity - linear_velocity)) * 0.008;
+      print(body.linear_velocity - linear_velocity);
+      damage(impact);
+      print(impact);
     if body is Player:
       body.damage(5);

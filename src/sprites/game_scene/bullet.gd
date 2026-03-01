@@ -14,7 +14,7 @@ static func create(node: Node2D, offset = Vector2(0, 0), dmg = 60):
 
   this.damage = dmg;
   
-  this.position = node.position + offset.rotated(node.rotation);
+  this.global_position = node.global_position + offset.rotated(node.rotation);
   this.rotation = node.rotation;
   return this;
 

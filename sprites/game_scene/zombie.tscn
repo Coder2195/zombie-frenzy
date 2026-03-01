@@ -51,7 +51,7 @@ rounded = true
 
 [node name="Hit" type="AudioStreamPlayer" parent="." unique_id=1828335732]
 stream = ExtResource("3_unsld")
-max_polyphony = 5
+max_polyphony = 10
 
 [node name="Obstacle" type="NavigationObstacle2D" parent="." unique_id=1336791320]
 radius = 44.3

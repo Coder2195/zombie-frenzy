@@ -27,16 +27,16 @@ func dismount():
 
 func _physics_process(delta):
   var motion = 0;
+  var turn = 0
   if passenger != null:
     motion = Input.get_axis("up", "down");
-    var turn = Input.get_axis("left", "right");
+    turn = Input.get_axis("left", "right");
     
-    rotate(turn * delta * 5.0);
-
+    
     if (Input.is_action_just_pressed("dismount")):
       dismount();
 
-
+  apply_torque(turn * 600000 - angular_velocity * 4000);
   apply_central_force(Vector2(0, 100000 * motion).rotated(rotation) - linear_velocity * 500);
   if passenger != null:
     passenger.position = self.position;
