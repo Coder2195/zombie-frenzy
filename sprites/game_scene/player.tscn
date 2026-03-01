@@ -33,6 +33,7 @@ z_as_relative = false
 
 [node name="Hurt" type="AudioStreamPlayer" parent="." unique_id=2018649585]
 stream = ExtResource("3_2ioc4")
+pitch_scale = 2.0
 max_polyphony = 10
 
 [node name="Pistol" type="AudioStreamPlayer" parent="." unique_id=666746654]
