@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccbjut34hmvx0"]
+[gd_scene format=3 uid="uid://ccbjut34hmvx0"]
 
 [ext_resource type="Texture2D" uid="uid://b5er8d1btq3bi" path="res://images/zombie/zombie.png" id="1_2p2lr"]
-[ext_resource type="Script" path="res://src/sprites/game_scene/zombie.gd" id="1_eirac"]
+[ext_resource type="Script" uid="uid://dc2eyj7chdjhw" path="res://src/sprites/game_scene/zombie.gd" id="1_eirac"]
 [ext_resource type="AudioStream" uid="uid://bhf8vkfx1vmf4" path="res://sounds/effects/hit.ogg" id="3_unsld"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bf1xa"]
@@ -11,34 +11,34 @@ height = 40.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s65yx"]
 size = Vector2(21, 37)
 
-[node name="Zombie" type="CharacterBody2D"]
+[node name="Zombie" type="RigidBody2D" unique_id=1643569516]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 39
 script = ExtResource("1_eirac")
 
-[node name="Zombie" type="Sprite2D" parent="."]
+[node name="Zombie" type="Sprite2D" parent="." unique_id=832382946]
 texture = ExtResource("1_2p2lr")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=574007211]
 position = Vector2(-2, 0)
 shape = SubResource("CapsuleShape2D_bf1xa")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1168685535]
 path_desired_distance = 34.9
 avoidance_enabled = true
 radius = 50.0
 
-[node name="Area" type="Area2D" parent="."]
+[node name="Area" type="Area2D" parent="." unique_id=348007153]
 
-[node name="Collision" type="CollisionShape2D" parent="Area"]
+[node name="Collision" type="CollisionShape2D" parent="Area" unique_id=585868066]
 position = Vector2(12.5, 0.5)
 shape = SubResource("RectangleShape2D_s65yx")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=505615189]
 wait_time = 0.5
 autostart = true
 
-[node name="Health" type="ProgressBar" parent="."]
+[node name="Health" type="ProgressBar" parent="." unique_id=666610801]
 z_index = 100
 offset_left = -49.0
 offset_top = -52.0
@@ -47,13 +47,13 @@ offset_bottom = -28.0
 step = 2.08165e-12
 rounded = true
 
-[node name="Hit" type="AudioStreamPlayer" parent="."]
+[node name="Hit" type="AudioStreamPlayer" parent="." unique_id=1828335732]
 stream = ExtResource("3_unsld")
 max_polyphony = 5
 
-[node name="Obstacle" type="NavigationObstacle2D" parent="."]
+[node name="Obstacle" type="NavigationObstacle2D" parent="." unique_id=1336791320]
 radius = 44.3
 vertices = PackedVector2Array(-16, -22, 23, -17, 23, 20, -15, 26)
 
-[connection signal="timeout" from="Timer" to="." method="try_hit"]
 [connection signal="timeout" from="Timer" to="Timer" method="start"]
+[connection signal="timeout" from="Timer" to="." method="try_hit"]

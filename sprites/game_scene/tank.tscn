@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bleibgesl0oph"]
+
+[ext_resource type="Texture2D" uid="uid://cw8sg7jr114i6" path="res://images/tank/turret.png" id="1_ch82e"]
+[ext_resource type="Script" uid="uid://2x144ceikrj0" path="res://src/sprites/game_scene/tank.gd" id="1_yo0g7"]
+[ext_resource type="Texture2D" uid="uid://c8j5u2gvxvfh0" path="res://images/tank/body.png" id="2_axp4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axp4x"]
+size = Vector2(80, 77)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_axp4x"]
+radius = 67.06713
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa5of"]
+size = Vector2(178, 176)
+
+[node name="Tank" type="RigidBody2D" unique_id=1684360629]
+collision_layer = 32
+collision_mask = 39
+collision_priority = 3.0
+mass = 100.0
+gravity_scale = 0.0
+script = ExtResource("1_yo0g7")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=336454105]
+position = Vector2(1, 0)
+rotation = 1.5707964
+texture = ExtResource("2_axp4x")
+offset = Vector2(13, -2)
+
+[node name="Turret" type="Sprite2D" parent="." unique_id=2138946251]
+rotation = -1.5707964
+texture = ExtResource("1_ch82e")
+offset = Vector2(15, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462789560]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_axp4x")
+
+[node name="Interact" type="Area2D" parent="." unique_id=1169106843]
+rotation = -0.00010373705
+
+[node name="InteractShape" type="CollisionShape2D" parent="Interact" unique_id=873743239]
+rotation = 0.013880154
+shape = SubResource("CircleShape2D_axp4x")
+
+[node name="Friction" type="Area2D" parent="." unique_id=1680328780]
+linear_damp_space_override = 1
+linear_damp = 1.915
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Friction" unique_id=1746882745]
+position = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_xa5of")

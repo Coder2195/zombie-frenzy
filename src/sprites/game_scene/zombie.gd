@@ -1,12 +1,13 @@
-class_name Zombie extends CharacterBody2D
+class_name Zombie extends RigidBody2D
 
-var movement_speed: float = randf_range(80.0, 200.0);
+var movement_speed: float = randf_range(800.0, 2000.0);
 var movement_target_position: Vector2 = Vector2(50.0, 180.0);
 var max_health: float = randi_range(80, 140);
 
 var health: float = max_health;
 
 var duration = 0.0;
+
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
@@ -43,12 +44,13 @@ func _physics_process(delta):
 
   rotation = lerp_angle(rotation, target_rot, 4 * delta);
 
-  velocity = direction * movement_speed;
-  move_and_slide();
+  apply_central_force(direction * movement_speed - linear_velocity * 10);
+  # velocity = direction * movement_speed;
+  # move_and_slide();
 
   $Health.value = health;
-  $Health.global_position = self.global_position + Vector2( - $Health.size.x / 2, -50);
-  $Health.rotation = -rotation;
+  $Health.global_position = self.global_position + Vector2(-$Health.size.x / 2, -50);
+  $Health.rotation = - rotation;
 
 func damage(dmg: float):
   $Hit.play();

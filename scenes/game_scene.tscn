@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dxn33gagcudqg" path="res://icon.svg" id="3_cjb2d"]
 [ext_resource type="PackedScene" uid="uid://by1x50o2g8532" path="res://sprites/game_scene/gui.tscn" id="4_lbpxj"]
 [ext_resource type="AudioStream" uid="uid://7o5n2lut3es1" path="res://sounds/music/game.mp3" id="5_417xc"]
+[ext_resource type="PackedScene" uid="uid://bleibgesl0oph" path="res://sprites/game_scene/tank.tscn" id="6_rurhu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_caljr"]
 
@@ -89,5 +90,9 @@ navigation_polygon = SubResource("NavigationPolygon_haj8k")
 stream = ExtResource("5_417xc")
 volume_db = -5.0
 autoplay = true
+
+[node name="Tank" parent="." unique_id=957673832 instance=ExtResource("6_rurhu")]
+position = Vector2(500, 172)
+rotation = 1.5580369
 
 [connection signal="new_wave" from="." to="GUI" method="set_wave"]
