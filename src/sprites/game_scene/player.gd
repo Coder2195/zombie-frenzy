@@ -68,7 +68,7 @@ func _physics_process(delta):
   if selected_item > 0 && Input.is_action_just_pressed("inventory_use") && vehicle == null:
     use_item();
  
-  
+
   if vehicle == null:
     sprint = Input.get_action_strength("sprint") * 0.5 + 1.0;
 
@@ -99,7 +99,10 @@ func _physics_process(delta):
       get_parent().add_child(bullet);
       $Pistol.play();
 
-  (get_node("/root/GameScene/GUI") as GUI).set_stamina(stamina);
+  var gui = (get_node("/root/GameScene/GUI") as GUI)
+  gui.set_stamina(stamina);
+  gui.set_dismount_visible(vehicle != null);
+
   
   if health <= 0:
     get_tree().change_scene_to_file("res://scenes/death_screen.tscn");

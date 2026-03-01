@@ -50,3 +50,6 @@ func set_inventory(items: Array[Player.ItemData]):
       item_node.animation = item.name;
       item_node.count_visible = item.count > 1;
       item_node.set_count(item.count);
+
+func set_dismount_visible(visible: bool):
+  $Control/Dismount.visible = visible;

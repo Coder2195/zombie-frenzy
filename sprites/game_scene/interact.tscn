@@ -2,17 +2,17 @@
 
 [node name="Interact" type="ColorRect" unique_id=624752423]
 offset_right = 200.0
-offset_bottom = 60.0
+offset_bottom = 32.0
 color = Color(1, 1, 1, 0.19607843)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1186430700]
 z_index = 1000
 z_as_relative = false
 layout_mode = 0
-offset_left = 26.0
-offset_top = 14.0
-offset_right = 180.0
-offset_bottom = 45.0
+offset_left = 27.0
+offset_top = 1.0
+offset_right = 181.0
+offset_bottom = 32.0
 bbcode_enabled = true
 text = "Press [E] to interact"
 horizontal_alignment = 1

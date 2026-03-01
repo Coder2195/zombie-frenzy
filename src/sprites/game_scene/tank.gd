@@ -14,7 +14,7 @@ func _physics_process(delta):
     $InteractMenu.global_position = self.global_position + Vector2(0, 50) - $InteractMenu.size / 2;
 
   if Input.is_action_pressed("fire") && last_shot + 100 < Time.get_ticks_msec() && passenger != null:
-    var bullet = Bullet.create($Turret, Vector2(0, 30), 20);
+    var bullet = Bullet.create($Turret, Vector2(0, 30), 40);
     bullet.creator = self ;
     bullet.global_position = $Turret.global_position + Vector2(60, 0).rotated($Turret.global_rotation);
     bullet.global_rotation = $Turret.global_rotation;
