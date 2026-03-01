@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://blwsnxveunl5o"]
+
+[ext_resource type="Texture2D" uid="uid://bt6ub7y4q33jo" path="res://images/explosion/sheet.png" id="1_eumq1"]
+[ext_resource type="AudioStream" uid="uid://b7bxqnb53yb7h" path="res://sounds/effects/explosion.mp3" id="3_1m06f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3umm4"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sck4"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxfs0"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vovt0"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdwg8"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcrjq"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvo1t"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1p05"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh1tm"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l2cg"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbbac"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukl0n"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyvfc"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4ipf"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q7w5"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nvud"]
+atlas = ExtResource("1_eumq1")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwimn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3umm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sck4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxfs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vovt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdwg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcrjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvo1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1p05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh1tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l2cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbbac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukl0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyvfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4ipf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q7w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nvud")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D" unique_id=1476306129]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_vwimn")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=1974021957]
+stream = ExtResource("3_1m06f")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1915072451]
+wait_time = 1.5
+autostart = true
+
+[connection signal="ready" from="." to="." method="play"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]

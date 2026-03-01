@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://iyhgtcr7y8lq"]
+[gd_scene format=3 uid="uid://iyhgtcr7y8lq"]
 
-[ext_resource type="Texture2D" uid="uid://ljcaeone82m3" path="res://images/particles/bullet.png" id="1_jx14u"]
-[ext_resource type="Script" path="res://src/sprites/game_scene/bullet.gd" id="1_mb6ae"]
+[ext_resource type="Texture2D" uid="uid://ljcaeone82m3" path="res://images/projectiles/bullet.png" id="1_jx14u"]
+[ext_resource type="Script" uid="uid://cb4u4roj4m7uf" path="res://src/sprites/game_scene/bullet.gd" id="1_mb6ae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtcvb"]
 size = Vector2(19, 10)
@@ -9,22 +9,22 @@ size = Vector2(19, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqwan"]
 size = Vector2(20, 10)
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="Bullet" type="CharacterBody2D" unique_id=1045865851]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_mb6ae")
 
-[node name="Bullet" type="Sprite2D" parent="."]
+[node name="Bullet" type="Sprite2D" parent="." unique_id=592935235]
 texture = ExtResource("1_jx14u")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=168900283]
 shape = SubResource("RectangleShape2D_mtcvb")
 
-[node name="Area" type="Area2D" parent="."]
+[node name="Area" type="Area2D" parent="." unique_id=200946636]
 collision_layer = 8
-collision_mask = 6
+collision_mask = 38
 
-[node name="CollisionArea" type="CollisionShape2D" parent="Area"]
+[node name="CollisionArea" type="CollisionShape2D" parent="Area" unique_id=2037436990]
 shape = SubResource("RectangleShape2D_dqwan")
 
 [connection signal="body_entered" from="Area" to="." method="body_enter"]

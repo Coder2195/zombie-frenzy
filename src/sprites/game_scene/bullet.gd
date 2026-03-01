@@ -1,12 +1,13 @@
 class_name Bullet extends CharacterBody2D;
 
-static var BulletScene = preload ("res://sprites/game_scene/bullet.tscn");
+static var BulletScene = preload("res://sprites/game_scene/bullet.tscn");
 
 var creator = null;
 var damage = 60;
 
-static func create(node: Node2D, offset=Vector2(0, 0), dmg=60):
+var initial_pos = Vector2(0, 0);
 
+static func create(node: Node2D, offset = Vector2(0, 0), dmg = 60):
   var this = BulletScene.instantiate();
   if this is Bullet:
     this.creator = node;
@@ -19,11 +20,12 @@ static func create(node: Node2D, offset=Vector2(0, 0), dmg=60):
 
 # Called when the node enters the BulletScene tree for the first time.
 func _ready():
-  pass # Replace with function body.
+  initial_pos = position;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-  pass
+  if position.distance_to(initial_pos) > 1000:
+    queue_free();
 
 func _physics_process(_delta):
   # Move the bullet in direction
@@ -38,4 +40,7 @@ func body_enter(body: Node2D):
     queue_free();
   elif body is Zombie:
     body.damage(damage);
+    queue_free();
+  elif body is Vehicle:
+    body.damage(5);
     queue_free();

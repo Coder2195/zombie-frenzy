@@ -5,7 +5,11 @@ var passenger: Player = null;
 
 var durability: float = 100.0;
 
+var explosion_scene = preload("res://sprites/game_scene/explosion.tscn");
+
 func ride(player: Player):
+  if player.vehicle != null:
+    return ;
   if durability <= 0:
     return ;
   passenger = player;
@@ -45,4 +49,9 @@ func damage(dmg: float):
   if durability <= 0:
     if passenger != null:
       dismount();
+    var root = get_tree().get_root().get_node("GameScene/");
+    if root != null:
+      var explosion = explosion_scene.instantiate();
+      explosion.global_position = global_position;
+      root.add_child(explosion);
     queue_free();
